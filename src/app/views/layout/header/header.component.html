@@ -1,3 +1,8 @@
-<mat-toolbar class="sticky !bg-blue-400">
-  <span>{{ title() }}</span>
-</mat-toolbar>
+<button 
+  (click)="toggleAdminMode()"
+  class="px-4 py-2 rounded"
+  [class.bg-red-500]="userService.isAdmin()"
+  [class.bg-blue-500]="!userService.isAdmin()"
+  class="text-white">
+  {{ userService.isAdmin() ? 'Mode Admin' : 'Mode Utilisateur' }}
+</button>

@@ -1,0 +1,35 @@
+<div class="max-w-2xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6">Profil Utilisateur</h1>
+  
+  <div class="bg-white shadow-md rounded-lg p-6">
+    <div class="mb-4">
+      <span class="font-bold">Nom :</span> {{ user().lastName }}
+    </div>
+    
+    <div class="mb-4">
+      <span class="font-bold">Prénom :</span> {{ user().firstName }}
+    </div>
+    
+    <div class="mb-4">
+      <span class="font-bold">Email :</span> {{ user().email }}
+    </div>
+    
+    <div class="mb-4">
+      <span class="font-bold">Date de naissance :</span> 
+      {{ user().birthDate | date: 'dd/MM/yyyy' }}
+    </div>
+    
+    <div class="mb-4">
+      <span class="font-bold">Adresse :</span> {{ user().address }}
+    </div>
+    
+    <div class="mb-4">
+      <span class="font-bold">Rôle :</span> 
+      <span class="px-3 py-1 rounded" 
+            [class.bg-red-200]="user().role === 'admin'"
+            [class.bg-blue-200]="user().role === 'user'">
+        {{ user().role === 'admin' ? 'Administrateur' : 'Utilisateur' }}
+      </span>
+    </div>
+  </div>
+</div>
